@@ -47,11 +47,11 @@ int producer()
     srand(time(NULL));
 
     i = 0;
-    while (i < 500) 
+    while (i < 50) 
     {
         msg = rand() % 256;
         memset(buffer, 0, MAX_SIZE);
-        sprintf(buffer, "%x", msg);
+        sprintf(buffer, "%d_%x", i, msg);
         printf("Produced: %s\n", buffer);
         fflush(stdout);
         mq_send(mq, buffer, MAX_SIZE, 0);
